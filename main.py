@@ -1,4 +1,5 @@
 import threading
+from pypresence import *
 from getfm import *
 from rp import *
 from d import *
@@ -14,8 +15,10 @@ def main():
         update_discord_rpc(CLIENT_ID, musica_atual, artista_atual, album_art)  # Atualiza o Rich Presence
         time.sleep(3)
 
-if __name__ == "__main__":
-    while True:
+def show_rp():
+    global rp_running
+    rp_running = True
+    while rp_running:
         musica_atual, artista_atual, album_art = get_music()  # Pega a música atual
         if musica_atual and artista_atual:
             # Atualiza o Rich Presence do Discord
@@ -29,3 +32,13 @@ if __name__ == "__main__":
         else:
             # Limpa o Rich Presence quando a música para de tocar
             RPC.clear()
+
+def stop_rp():
+    global rp_running
+    rp_running = False
+    RPC.clear()
+
+
+
+if __name__ == "__main__":
+    show_rp()
