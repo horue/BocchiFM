@@ -34,13 +34,14 @@ def get_music():
                 musica_atual = track['name']
                 artista_atual = track['artist']['#text']
                 album_art = track['image'][2]['#text']  # Capa do álbum (tamanho médio)
+                album_name = track['album']['#text']
 
                 # Verifica se a música mudou
                 if musica_atual != ultima_musica:
                     print(f"Agora tocando: {musica_atual} - {artista_atual}")
                     ultima_musica = musica_atual  # Atualiza a última música
-                return musica_atual, artista_atual, album_art
-    return None, None, None  # Se não houver música tocando
+                return musica_atual, artista_atual, album_art, album_name
+    return None, None, None, None  # Se não houver música tocando
 
 
 def verify():
