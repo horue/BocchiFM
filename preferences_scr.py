@@ -5,7 +5,7 @@ from preferences import *
 def edit_pref():
     root = tk.Tk()
     root.title("Preferences")
-    root.iconbitmap("bcc_2.ico")
+    root.iconbitmap(r"Visual_Assets/bcc_2.ico")
 
 
     # Frame para organizar os widgets

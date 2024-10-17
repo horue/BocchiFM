@@ -8,7 +8,7 @@ from preferences_scr import *
 
 def create_image(width, height, color1, color2):
     # Generate an image and draw a pattern
-    image = Image.open('bcc_2.png')
+    image = Image.open(r'Visual_Assets/bcc_2.png')
     return image
 
 
