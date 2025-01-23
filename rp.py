@@ -1,4 +1,4 @@
-from pypresence import Presence
+from pypresence import *
 import time
 
 def update_discord_rpc(client_id, musica_atual, artista_atual, album_art):
@@ -9,6 +9,7 @@ def update_discord_rpc(client_id, musica_atual, artista_atual, album_art):
         if musica_atual and artista_atual:
             # Atualiza o Rich Presence do Discord
             RPC.update(
+                type = "LISTENING",
                 details=f"**{musica_atual}**",
                 state=f"{artista_atual}",
                 large_image=album_art if album_art else "default_image",  # Use uma imagem padrão se não houver capa
