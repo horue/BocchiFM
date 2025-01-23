@@ -1,5 +1,4 @@
 import configparser
-import tkinter
 from tkinter import messagebox
 
 
