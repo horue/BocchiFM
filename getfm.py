@@ -1,18 +1,14 @@
-import pylast
 import requests
 import time
 import logging
 from d import *
 
-# Configuração do logging para registrar erros
 logging.basicConfig(filename='scrobbling_errors.log', level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Credenciais do Last.fm (substitua pelos seus valores)
 
 url = f"http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user={USERNAME}&api_key={API_KEY}&format=json"
 
-# Variável global para armazenar a última música
 ultima_musica = None
 
 def get_music():
