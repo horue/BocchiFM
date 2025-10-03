@@ -23,7 +23,7 @@ class PreferencesScreen:
         e2.grid(column=2, row=2)
 
         # Botão de Envio
-        submit_button = ttk.Button(frame, text="Save", command=lambda:save_pref(user=e1.get(), key=e2.get()))
+        submit_button = ttk.Button(frame, text="Save", command=lambda:Preferences.save_preferences(user=e1.get(), key=e2.get()))
         submit_button.grid(column=2, row=3, pady=10)
 
         # Para garantir que as colunas ajustem ao tamanho do conteúdo
