@@ -6,8 +6,7 @@ import threading
 from preferences_scr import *
 
 
-def create_image(width, height, color1, color2):
-    # Generate an image and draw a pattern
+def icon(width, height, color1, color2):
     image = Image.open(r'Visual_Assets/bcc_2.png')
     return image
 
@@ -39,7 +38,7 @@ menu_i = pystray.Menu(
 
 
 # In order for the icon to be displayed, you must provide an icon
-icon = pystray.Icon('test name',icon=create_image(64, 64, 'black', 'white'),menu=menu_i)
+icon = pystray.Icon('test name',icon=icon(64, 64, 'black', 'white'),menu=menu_i)
 
 
 # To finally show you icon, call run
