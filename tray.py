@@ -6,13 +6,13 @@ import threading
 from preferences_scr import *
 
 class Menu:
-    def icon(width, height, color1, color2):
+    def icon(width, height, color1, color2) -> Image:
         image = Image.open(r'Visual_Assets/bcc_2.png')
         return image
 
 
 
-    def on_clicked(icon, item):
+    def on_clicked(icon, item) -> None:
         if str(item) == "Exit":
             icon.stop()
 
@@ -23,7 +23,7 @@ class Menu:
             threading.Thread(target=stop_rp, daemon=True).start()
 
         elif str(item) == "Preferences":
-            threading.Thread(target=edit_pref, daemon=True).start()
+            threading.Thread(target=PreferencesScreen.edit_pref, daemon=True).start()
 
 
     menu = pystray.Menu(
