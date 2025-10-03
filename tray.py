@@ -26,8 +26,8 @@ class Menu:
             threading.Thread(target=PreferencesScreen.edit_pref, daemon=True).start()
 
     @classmethod
-    def create_menu(cls):
-        menu = pystray.Menu(
+    def create_menu(cls) -> pystray.Menu:
+        menu: pystray.Menu = pystray.Menu(
             pystray.MenuItem(f"BocchiFM by horue.", None, enabled=False),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Start", cls.on_clicked),
