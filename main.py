@@ -27,7 +27,7 @@ def show_rp():
                     details=f"{musica_atual}",
                     state=f"{artista_atual}",
                     large_image=album_art if album_art else "default_image",  # Use a default image if no cover is provided
-                    large_text=f"{album_name}",
+                    large_text=album_name if album_name else "No album found for this music.",
                 )
                 time.sleep(3)
             else:
@@ -37,6 +37,7 @@ def show_rp():
     except Exception as e:
         print(e)
         time.sleep(2)
+        show_rp()
 
 def stop_rp():
     global rp_running
