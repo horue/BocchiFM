@@ -25,20 +25,22 @@ class Menu:
         elif str(item) == "Preferences":
             threading.Thread(target=PreferencesScreen.edit_pref, daemon=True).start()
 
-
-    menu = pystray.Menu(
-        pystray.MenuItem(f"BocchiFM by horue.", None, enabled=False),
-        pystray.Menu.SEPARATOR,
-        pystray.MenuItem("Start", on_clicked),
-        pystray.MenuItem("Stop", on_clicked),
-        pystray.Menu.SEPARATOR,
-        pystray.MenuItem("Preferences", on_clicked),
-        pystray.MenuItem("Exit", on_clicked) 
-    )
+    @classmethod
+    def create_menu(cls):
+        menu = pystray.Menu(
+            pystray.MenuItem(f"BocchiFM by horue.", None, enabled=False),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Start", cls.on_clicked),
+            pystray.MenuItem("Stop", cls.on_clicked),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Preferences", cls.on_clicked),
+            pystray.MenuItem("Exit", cls.on_clicked) 
+        )
+        return menu
 
 
 # In order for the icon to be displayed, you must provide an icon
-icon = pystray.Icon('test name',icon=Menu.icon(64, 64, 'black', 'white'),menu=Menu.menu)
+icon = pystray.Icon('test name',icon=Menu.icon(64, 64, 'black', 'white'),menu=Menu.create_menu())
 
 
 # To finally show you icon, call run
