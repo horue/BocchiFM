@@ -3,7 +3,7 @@ from main import *
 import pystray
 from PIL import Image, ImageDraw
 import threading
-from preferences_scr import *
+from preferences.preferences_scr import *
 
 class Menu:
     def icon(width, height, color1, color2) -> Image:
