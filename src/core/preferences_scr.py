@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from preferences.preferences import *
+from core.preferences import *
 
 class PreferencesScreen:
     def edit_pref() -> None:

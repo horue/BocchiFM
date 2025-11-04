@@ -1,7 +1,7 @@
 import requests
 import time
 import logging
-from d import *
+from core.config import USERNAME, API_KEY
 
 logging.basicConfig(filename='scrobbling_errors.log', level=logging.ERROR,
                     format='%(asctime)s - %(levelname)s - %(message)s')

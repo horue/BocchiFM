@@ -1,11 +1,11 @@
 import threading
 from pypresence import *
 from core.lastfm import *
-from d import *
+from core.config import CLIENT_ID
 
-# Substitua pelo seu Client ID do aplicativo Discord
-RPC = Presence(CLIENT_ID)  # Cria uma instância do Presence
-RPC.connect()  # Conecta ao Discord
+
+RPC = Presence(CLIENT_ID) 
+RPC.connect() 
 
 
 class RichPresence():
