@@ -1,6 +1,6 @@
 import threading
 from pypresence import *
-from api.getfm import *
+from core.lastfm import *
 from d import *
 
 # Substitua pelo seu Client ID do aplicativo Discord
