@@ -1,4 +1,3 @@
-from main import *
 import pystray
 from PIL import Image, ImageDraw
 import threading
@@ -7,7 +6,7 @@ from core.richpresence import RichPresence
 
 class App:
     def icon(width, height, color1, color2) -> Image:
-        image = Image.open(r'assets/bcc_2.png')
+        image = Image.open(r'src/assets/bcc_2.png')
         return image
 
     def on_clicked(icon, item) -> None:
