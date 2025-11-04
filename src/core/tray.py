@@ -1,9 +1,9 @@
-from api.getfm import *
 from main import *
 import pystray
 from PIL import Image, ImageDraw
 import threading
-from preferences.preferences_scr import *
+from core.preferences_scr import *
+from core.richpresence import RichPresence
 
 class App:
     def icon(width, height, color1, color2) -> Image:
@@ -15,10 +15,10 @@ class App:
             icon.stop()
 
         elif str(item) == "Start":
-            threading.Thread(target=show_rp, daemon=True).start()
+            threading.Thread(target=RichPresence.run, daemon=True).start()
 
         elif str(item) == "Stop":
-            threading.Thread(target=stop_rp, daemon=True).start()
+            threading.Thread(target=RichPresence.stop, daemon=True).start()
 
         elif str(item) == "Preferences":
             threading.Thread(target=PreferencesScreen.edit_pref, daemon=True).start()
@@ -39,5 +39,3 @@ class App:
     def run():
         icon = pystray.Icon('test name',icon=App.icon(64, 64, 'black', 'white'),menu=App.create_menu())
         icon.run()
-
-App.run()
