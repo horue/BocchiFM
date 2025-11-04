@@ -8,13 +8,6 @@ from d import *
 RPC = Presence(CLIENT_ID)  # Cria uma instância do Presence
 RPC.connect()  # Conecta ao Discord
 
-
-def main():
-    while True:
-        musica_atual, artista_atual, album_art = get_music()  # Gets music
-        update_discord_rpc(CLIENT_ID, musica_atual, artista_atual, album_art)  # Atualiza o Rich Presence
-        time.sleep(3)
-
 def show_rp():
     global rp_running
     rp_running = True
