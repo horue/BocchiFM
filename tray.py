@@ -1,4 +1,4 @@
-from getfm import *
+from api.getfm import *
 from main import *
 import pystray
 from PIL import Image, ImageDraw
@@ -39,9 +39,5 @@ class Menu:
         return menu
 
 
-# In order for the icon to be displayed, you must provide an icon
 icon = pystray.Icon('test name',icon=Menu.icon(64, 64, 'black', 'white'),menu=Menu.create_menu())
-
-
-# To finally show you icon, call run
 icon.run()

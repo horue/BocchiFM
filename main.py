@@ -1,6 +1,6 @@
 import threading
 from pypresence import *
-from getfm import *
+from api.getfm import *
 from rp import *
 from d import *
 
