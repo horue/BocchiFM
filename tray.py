@@ -5,12 +5,10 @@ from PIL import Image, ImageDraw
 import threading
 from preferences.preferences_scr import *
 
-class Menu:
+class App:
     def icon(width, height, color1, color2) -> Image:
-        image = Image.open(r'Visual_Assets/bcc_2.png')
+        image = Image.open(r'assets/bcc_2.png')
         return image
-
-
 
     def on_clicked(icon, item) -> None:
         if str(item) == "Exit":
@@ -38,6 +36,8 @@ class Menu:
         )
         return menu
 
+    def run():
+        icon = pystray.Icon('test name',icon=App.icon(64, 64, 'black', 'white'),menu=App.create_menu())
+        icon.run()
 
-icon = pystray.Icon('test name',icon=Menu.icon(64, 64, 'black', 'white'),menu=Menu.create_menu())
-icon.run()
+App.run()
