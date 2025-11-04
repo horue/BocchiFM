@@ -1,5 +1,5 @@
 import configparser
-from cid import *
+from core.cid import c_id
 
 config = configparser.ConfigParser()
 config.read('pref.bcc')
