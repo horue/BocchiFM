@@ -9,6 +9,15 @@ RPC.connect()
 
 
 class RichPresence():
+    globalSound = ""
+    globalArtist = ""
+
+
+    def updateMusicInfo():
+        musicInfoString = f"Now playing {RichPresence.globalSound} by {RichPresence.globalArtist}."
+
+
+
     @staticmethod
     def run():
         global rp_running
@@ -24,6 +33,8 @@ class RichPresence():
                         large_image=album_art if album_art else "default_image",  # Use a default image if no cover is provided
                         large_text=album_name if album_name else "No album found for this music.",
                     )
+                    RichPresence.globalSound = musica_atual
+                    RichPresence.globalArtist = artista_atual
                     time.sleep(3)
                 else:
                     RPC.clear()
