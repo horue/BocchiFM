@@ -11,6 +11,7 @@ RPC.connect()
 class RichPresence():
     globalSound = ""
     globalArtist = ""
+    rp_running = False
 
 
     def updateMusicInfo():
@@ -20,10 +21,11 @@ class RichPresence():
 
     @staticmethod
     def run():
-        global rp_running
-        rp_running = True
+        if RichPresence.rp_running:
+            return
+        RichPresence.rp_running = True
         try:
-            while rp_running:
+            while RichPresence.rp_running:
                 musica_atual, artista_atual, album_art, album_name = get_music()  # Gets music
                 if musica_atual and artista_atual:
                     # Atualiza o Rich Presence do Discord
@@ -39,11 +41,10 @@ class RichPresence():
                 else:
                     RPC.clear()
                     time.sleep(10)
-                    RichPresence.run()
         except Exception as e:
             print(e)
-            time.sleep(2)
-            RichPresence.run()
+        finally:
+            RichPresence.rp_running = False
 
     @staticmethod
     def stop():
