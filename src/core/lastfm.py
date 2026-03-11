@@ -15,13 +15,15 @@ def get_music():
     try:
         global ultima_musica
         response = requests.get(url)
-
-        # Verifica se a requisição foi bem-sucedida
-        if response.status_code != 200:
-            logging.error(f"Erro ao fazer requisição: {response.status_code}")
-            return None, None, None
-
         data = response.json()
+
+        try:
+            response = requests.get(url, timeout=5)
+            response.raise_for_status()
+            data = response.json()
+        except (requests.RequestException, ValueError) as e:
+            logging.error(f"Falha ao obter música: {e}")
+            return None, None, None, None
 
         if 'recenttracks' in data and 'track' in data['recenttracks']:
             tracks = data['recenttracks']['track']
