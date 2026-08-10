@@ -46,7 +46,7 @@ def get_music():
                         print(f"Agora tocando: {musica_atual} - {artista_atual}")
                         ultima_musica = musica_atual  # Atualiza a última música
                     return musica_atual, artista_atual, album_art, album_name, track_duration
-        return None, None, None, None  # Se não houver música tocando
+        return None, None, None, None, None  # Se não houver música tocando
     except ValueError as e:
         print(e)
         get_music()
